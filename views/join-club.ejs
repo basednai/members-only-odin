@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Club</title>
+</head>
+
+<body>
+    <% if (locals.user.membership_status) { %>
+
+
+        <p>Do you want to join the private club?</p>
+        <form action="/join-club" method="post">
+            <div>
+                <input type="radio" id="yes" name="yes" value="yes">
+                <label for="yes">Yes</label><br>
+                <input type="radio" id="no" name="no" value="no">
+                <label for="no">No</label>
+            </div>
+            <button type="submit">submit</button>
+        </form>
+        <% } else {%>
+
+            <p>You're already a member</p>
+            <% } %>
+
+
+                <a href="/">home</a>
+</body>
+
+</html>

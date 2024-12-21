@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body>
+    <% if (locals.user) { %>
+        <p>you are signed in.</p>
+        <a href="/sign-out">sign out</a>
+        <a href="/join-club">join club</a>
+        <% } else {%>
+            <p>you are not signed in.</p>
+            <a href="/sign-in">sign in</a>
+            <% } %>
+
+
+        </body>
+
+</html>
