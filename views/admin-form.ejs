@@ -6,29 +6,33 @@
     <link rel="stylesheet" href="/css/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css">
-    <title>Join Club</title>
+    <title>Become an admin</title>
 </head>
 
 <body>
     <% if (locals.errors) { %>
         <%- include('partials/errors', locals.errors) %>
             <% }%>
-                <% if (locals.user.membership_status == "false") { %>
+                <% if (!locals.user.admin) { %>
 
 
-                    <p>Do you want to join the private club?</p>
-                    <form action="/join-club" method="post">
+                    <p>Become an admin?</p>
+                    <form action="/admin-form" method="post">
                         <div>
-                            <input type="radio" id="yes" name="join" value="true">
+                            <input type="radio" id="yes" name="admin" value="true">
                             <label for="yes">Yes</label><br>
-                            <input type="radio" id="no" name="join" value="false">
+                            <input type="radio" id="no" name="admin" value="false">
                             <label for="no">No</label>
+                            <br>
+                            <label for="test">What's 2 + 2?</label>
+                            <br>
+                            <input type="number" name="test" placeholder="2 + 2 = ?">
                         </div>
                         <button type="submit">submit</button>
                     </form>
                     <% } else {%>
 
-                        <p>You're already a member</p>
+                        <p>You're already an admin</p>
                         <% } %>
 
 

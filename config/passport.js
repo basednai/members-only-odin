@@ -16,7 +16,7 @@ passport.use(
       if (!isMatch) {
         return done(null, false, { message: "Incorrect password" });
       }
-      console.log("logged in!");
+      console.log("logged in!", user.username);
       return done(null, user);
     } catch (err) {
       return done(err);
@@ -31,7 +31,7 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser(async (id, done) => {
   try {
       const user = await db.getUserByID(id);
-      
+
     done(null, user);
   } catch (err) {
     done(err);
